@@ -1,5 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 
+import useGameStore from "@/stores/useGameStore";
 import { type TCard } from "@/types";
 
 type CardListItemProps = {
@@ -7,20 +8,37 @@ type CardListItemProps = {
 };
 
 export default function CardListItem({ card }: CardListItemProps) {
-  return (
-    <Card className="p-2">
-      <CardContent className="p-0">
-        <img
-          src="/lakers.svg"
-          alt="Lakers Logo"
-          className="w-full h-52 sm:h-64 object-center mx-auto"
-        />
+  const selectedCard1 = useGameStore((state) => state.selectedCard1);
+  const selectedCard2 = useGameStore((state) => state.selectedCard2);
+  const isDisabled = useGameStore((state) => state.isDisabled);
+  const selectCard = useGameStore((state) => state.selectCard);
 
-        <img
-          src={card.image}
-          alt="Lakers Player"
-          className="w-full h-52 sm:h-64 object-center mx-auto"
-        />
+  const isFlipped =
+    card.id === selectedCard1?.id ||
+    card.id === selectedCard2?.id ||
+    card.isMatched;
+
+  const handleSelect = () => {
+    if (isFlipped || isDisabled) return;
+    selectCard(card);
+  };
+
+  return (
+    <Card className="p-2" onClick={handleSelect}>
+      <CardContent className="p-0">
+        {isFlipped ? (
+          <img
+            src={card.image}
+            alt="Lakers Player"
+            className="w-full h-52 sm:h-64 object-center mx-auto"
+          />
+        ) : (
+          <img
+            src="/lakers.svg"
+            alt="Lakers Logo"
+            className="w-full h-52 sm:h-64 object-center mx-auto"
+          />
+        )}
       </CardContent>
     </Card>
   );
