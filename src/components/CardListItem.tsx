@@ -1,3 +1,5 @@
+import clsx from "clsx";
+
 import { Card, CardContent } from "@/components/ui/card";
 
 import useGameStore from "@/stores/useGameStore";
@@ -30,7 +32,7 @@ export default function CardListItem({ card }: CardListItemProps) {
           <img
             src={card.image}
             alt="Lakers Player"
-            className="w-full h-52 sm:h-64 object-center mx-auto"
+            className="w-full h-52 sm:h-64 object-center mx-auto animate-fade-in"
           />
         ) : (
           <img
