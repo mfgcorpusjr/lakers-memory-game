@@ -120,13 +120,15 @@
 }
 
 @theme {
-  @keyframes fade-in {
+  @keyframes fade-in-from-top {
     from {
       opacity: 0;
+      transform: translateY(-16px);
     }
     to {
       opacity: 1;
+      transform: translateY(0);
     }
   }
-  --animate-fade-in: fade-in 1s ease-out both;
+  --animate-fade-in-from-top: fade-in-from-top 1s ease-out both;
 }

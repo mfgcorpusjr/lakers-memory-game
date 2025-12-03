@@ -32,7 +32,7 @@ export default function CardListItem({ card }: CardListItemProps) {
           <img
             src={card.image}
             alt="Lakers Player"
-            className="w-full h-52 sm:h-64 object-center mx-auto animate-fade-in"
+            className="w-full h-52 sm:h-64 object-center mx-auto animate-fade-in-from-top"
           />
         ) : (
           <img
