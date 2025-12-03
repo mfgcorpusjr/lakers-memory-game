@@ -128,5 +128,5 @@
       opacity: 1;
     }
   }
-  --animate-fade-in: fade-in 2s ease-out both;
+  --animate-fade-in: fade-in 1s ease-out both;
 }
