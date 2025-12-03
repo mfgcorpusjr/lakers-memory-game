@@ -1,0 +1,18 @@
+export const images = [
+  "/images/ayton.webp",
+  "/images/b_james.webp",
+  "/images/doncic.avif",
+  "/images/hachimura.avif",
+  "/images/hayes.avif",
+  "/images/james.webp",
+  "/images/kleber.avif",
+  "/images/knecht.avif",
+  "/images/la_ravia.webp",
+  "/images/manon.avif",
+  "/images/reaves.avif",
+  "/images/smart.webp",
+  "/images/smith_jr.webp",
+  "/images/thiero.avif",
+  "/images/vanderbilt.webp",
+  "/images/vincent.avif",
+];
