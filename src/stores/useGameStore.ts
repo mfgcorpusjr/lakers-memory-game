@@ -5,18 +5,21 @@ import { images } from "@/data";
 
 type GameStore = {
   cards: TCard[];
+  moves: number;
   newGame: () => void;
 };
 
 const useGameStore = create<GameStore>((set, get) => ({
   cards: [],
 
+  moves: 0,
+
   newGame: () => {
     const cards = [...images, ...images]
       .sort(() => Math.random() - 0.5)
       .map((card, index) => ({ id: index + 1, image: card, isFlipped: false }));
 
-    set({ cards });
+    set({ cards, moves: 0 });
   },
 }));
 
