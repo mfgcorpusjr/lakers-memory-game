@@ -6,7 +6,7 @@ export default function CardList() {
   const cards = useGameStore((state) => state.cards);
 
   return (
-    <section className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-4">
+    <section className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
       {cards.map((card) => (
         <CardListItem key={card.id} card={card} />
       ))}
