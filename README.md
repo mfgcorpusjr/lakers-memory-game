@@ -4,3 +4,9 @@ A simple and fun React-based memory game where your goal is to match pairs of LA
 
 ### Live Demo
 A working version of this app is available at https://lakers-memory-game.vercel.app/
+
+### Key Dependencies
+- React 19
+- Shadcn/ui
+- Tailwind
+- Zustand
