@@ -4,8 +4,9 @@ import { ThemeProvider } from "@/providers/ThemeProvider";
 import Navbar from "@/components/Navbar";
 import Moves from "@/components/Moves";
 import CardList from "@/components/CardList";
+import Results from "@/components/Results";
 
-import useGameStore from "./stores/useGameStore";
+import useGameStore from "@/stores/useGameStore";
 
 export default function App() {
   const selectedCard1 = useGameStore((state) => state.selectedCard1);
@@ -45,6 +46,8 @@ export default function App() {
 
         <CardList />
       </main>
+
+      <Results />
     </ThemeProvider>
   );
 }

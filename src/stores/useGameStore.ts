@@ -17,7 +17,7 @@ type GameStore = {
   incorrectTurn: () => void;
 };
 
-const useGameStore = create<GameStore>((set, get) => ({
+const useGameStore = create<GameStore>((set) => ({
   cards: [],
 
   moves: 0,
