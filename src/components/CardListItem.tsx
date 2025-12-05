@@ -1,3 +1,5 @@
+import clsx from "clsx";
+
 import { Card, CardContent } from "@/components/ui/card";
 
 import useGameStore from "@/stores/useGameStore";
@@ -24,21 +26,35 @@ export default function CardListItem({ card }: CardListItemProps) {
   };
 
   return (
-    <Card className="p-2" onClick={handleSelect}>
-      <CardContent className="p-0">
-        {isFlipped ? (
-          <img
-            src={card.image}
-            alt="Lakers Player"
-            className="aspect-3/4 object-center mx-auto animate-fade-in-from-top"
-          />
-        ) : (
-          <img
-            src="/lakers.svg"
-            alt="Lakers Logo"
-            className="aspect-3/4 object-center mx-auto"
-          />
-        )}
+    <Card className="p-2 cursor-pointer" onClick={handleSelect}>
+      <CardContent className="p-0 h-full">
+        {/* Flip wrapper (needs fixed aspect ratio + full height) */}
+        <div className="relative w-full aspect-3/4 perspective">
+          <div
+            className={clsx(
+              "relative w-full h-full transition-transform duration-700 transform-style-preserve-3d",
+              {
+                "rotate-y-180": isFlipped,
+              }
+            )}
+          >
+            <div className="absolute inset-0 w-full h-full backface-hidden flex items-center justify-center">
+              <img
+                src="/lakers.svg"
+                alt="Lakers Logo"
+                className="w-full h-full object-center"
+              />
+            </div>
+
+            <div className="absolute inset-0 w-full h-full rotate-y-180 backface-hidden flex items-center justify-center">
+              <img
+                src={card.image}
+                alt="Player"
+                className="w-full h-full object-center"
+              />
+            </div>
+          </div>
+        </div>
       </CardContent>
     </Card>
   );
